@@ -5,7 +5,6 @@ import Section from '../components/Section.astro';
 import Host from '../components/Host.astro';
 import Footer from '../components/Footer.astro';
 import CopyEmail from '../components/CopyEmail.astro';
-import { episodes } from '../data/episodes';
 import { hosts } from '../data/hosts';
 
 const runOfShow = [
@@ -50,21 +49,6 @@ const values = [
 
     <Section id="hosts" label="git shortlog -s" title="Your hosts">
       <div class="hosts">{hosts.map((host) => <Host host={host} />)}</div>
-    </Section>
-
-    <Section id="episodes" label="git log --graph --reverse" title="Coming up">
-      <ol class="log">
-        {episodes.map((e) => (
-          <li class={e.guest ? 'guest-ep' : 'host-ep'}>
-            <span class="g" aria-hidden="true">{e.guest && <b></b>}<i></i></span>
-            <div class="e">
-              <span class="when">{e.when} · EP {e.number}</span>
-              <h3>{e.title}</h3>
-              <p><span class="tag">{e.guest ? 'With a guest.' : 'Hosts only.'}</span> {e.text}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
     </Section>
 
     <Section id="listen" label="git remote -v" title="Where to listen">

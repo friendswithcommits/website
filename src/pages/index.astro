@@ -29,13 +29,13 @@ const values = [
       <p class="muted">Nobody knows yet what that does to maintainers, sponsoring and communities. We ask the people who are finding out. Hosted by a maintainer and a developer who uses what he builds.</p>
       <p class="question"><span class="qm">“</span>What has changed in your project in the last year, and what has stayed the same?<span class="qm">”</span></p>
       <p class="muted">Not every episode is about AI. But every guest gets this question at some point.</p>
-      <div class="cols">
-        {values.map(([name, text]) => <div><h3>{name}</h3><p>{text}</p></div>)}
-      </div>
     </Section>
 
     <Section id="hosts" label="git shortlog -s" title="Your hosts">
       <div class="hosts">{hosts.map((host) => <Host host={host} />)}</div>
+      <div class="cols">
+        {values.map(([name, text]) => <div><h3>{name}</h3><p>{text}</p></div>)}
+      </div>
     </Section>
 
     <Section id="listen" label="git remote -v" title="Where to listen">

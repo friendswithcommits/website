@@ -138,4 +138,4 @@ footer p b { color: var(--fg); }
   @keyframes grow { from { transform: scaleX(.6); } to { transform: scaleX(1); } }
 }
 
-#about .cols { margin-top: 16px; }
+#hosts .cols { margin-top: 24px; }

@@ -137,3 +137,5 @@ footer p b { color: var(--fg); }
   .band > span:nth-child(4) { animation-delay: .24s; }
   @keyframes grow { from { transform: scaleX(.6); } to { transform: scaleX(1); } }
 }
+
+#about .cols { margin-top: 16px; }

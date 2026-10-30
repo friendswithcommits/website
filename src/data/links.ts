@@ -1,4 +1,4 @@
-// External profiles. TODO: replace the LinkedIn placeholder as soon as the page exists.
+// External profiles. LinkedIn is Johannes' personal profile until the podcast has its own account.
 export const links = {
-  linkedin: '#',
+  linkedin: 'https://www.linkedin.com/in/wachterjohannes/',
 };

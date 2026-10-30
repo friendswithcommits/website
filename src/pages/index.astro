@@ -7,18 +7,6 @@ import Footer from '../components/Footer.astro';
 import CopyEmail from '../components/CopyEmail.astro';
 import { hosts } from '../data/hosts';
 
-const runOfShow = [
-  ['Warm-up', 'An easy start and an introduction to our guest.'],
-  ['Origin story', 'How the project started and why it exists.'],
-  ['Main topic', 'A deep dive into the guest’s field, from maintenance to tooling.'],
-  ['Favourite repo & support call', 'Guest and hosts each bring a repository they love, say why, and ask you to support it.'],
-  ['Outro', 'What we take away, and goodbye.'],
-];
-const values = [
-  ['Honest', 'Wins, frustration, hype and everyday work, unfiltered.'],
-  ['From practitioners', 'We talk about things we have built or used ourselves.'],
-  ['Not here', 'Sales pitches, tutorials, news of the week.'],
-];
 ---
 <BaseLayout>
   <header>
@@ -36,15 +24,6 @@ const values = [
       <p class="muted">Nobody knows yet what that does to maintainers, sponsoring and communities. We ask the people who are finding out. Hosted by a maintainer and a developer who uses what he builds.</p>
       <p class="question"><span class="qm">“</span>What has changed in your project in the last year, and what has stayed the same?<span class="qm">”</span></p>
       <p class="muted">Not every episode is about AI. But every guest gets this question at some point.</p>
-    </Section>
-
-    <Section id="format" label="cat RUN_OF_SHOW" title="How an episode runs">
-      <ol class="run">
-        {runOfShow.map(([name, text]) => <li><span class="d"><b>{name}</b><span>{text}</span></span></li>)}
-      </ol>
-      <div class="cols">
-        {values.map(([name, text]) => <div><h3>{name}</h3><p>{text}</p></div>)}
-      </div>
     </Section>
 
     <Section id="hosts" label="git shortlog -s" title="Your hosts">

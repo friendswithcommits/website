@@ -33,16 +33,5 @@ const ogDescription = 'The people who keep open source running. A podcast about 
   </head>
   <body>
     <slot />
-    <!-- GoatCounter analytics (privacy-friendly, cookieless, same as johanneswachter.dev). Loaded only on
-         the production host, so the private stage (fwc.eve.asapo.at) and local dev are not counted. -->
-    <script is:inline>
-      if (location.hostname === 'friendswithcommits.dev' || location.hostname === 'www.friendswithcommits.dev') {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = '//gc.zgo.at/count.js';
-        s.dataset.goatcounter = 'https://friendswithcommits.goatcounter.com/count';
-        document.head.appendChild(s);
-      }
-    </script>
   </body>
 </html>

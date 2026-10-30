@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Band from '../components/Band.astro';
+import Section from '../components/Section.astro';
+import Host from '../components/Host.astro';
+import Footer from '../components/Footer.astro';
+import CopyEmail from '../components/CopyEmail.astro';
+import { episodes } from '../data/episodes';
+import { hosts } from '../data/hosts';
+
+const runOfShow = [
+  ['Warm-up', 'An easy start and an introduction to our guest.'],
+  ['Origin story', 'How the project started and why it exists.'],
+  ['Main topic', 'A deep dive into the guest’s field, from maintenance to tooling.'],
+  ['Favourite repo & support call', 'Guest and hosts each bring a repository they love, say why, and ask you to support it.'],
+  ['Outro', 'What we take away, and goodbye.'],
+];
+const values = [
+  ['Honest', 'Wins, frustration, hype and everyday work, unfiltered.'],
+  ['From practitioners', 'We talk about things we have built or used ourselves.'],
+  ['Not here', 'Sales pitches, tutorials, news of the week.'],
+];
+---
+<BaseLayout>
+  <header>
+    <Band />
+    <div class="wrap">
+      <h1>Friends <span class="with">with</span> Commits</h1>
+      <p class="tagline">The people who keep open source running.</p>
+      <p class="status"><span><span class="dot" aria-hidden="true"></span><b>Episode 0</b> in December 2026</span><span>Monthly</span><span>In English</span></p>
+    </div>
+  </header>
+
+  <main>
+    <Section id="about" label="git show HEAD" title="A podcast about the people behind the repos.">
+      <p class="lead">Open source runs on people, and those people are living through the biggest change to their work since the move to Git. Pull requests get cheap, reviews become the bottleneck, and agents read and write code in projects that are 20 years old.</p>
+      <p class="muted">Nobody knows yet what that does to maintainers, sponsoring and communities. We ask the people who are finding out. Hosted by a maintainer and a developer who uses what he builds.</p>
+      <p class="question"><span class="qm">“</span>What has changed in your project in the last year, and what has stayed the same?<span class="qm">”</span></p>
+      <p class="muted">Not every episode is about AI. But every guest gets this question at some point.</p>
+    </Section>
+
+    <Section id="format" label="cat RUN_OF_SHOW" title="How an episode runs">
+      <ol class="run">
+        {runOfShow.map(([name, text]) => <li><span class="d"><b>{name}</b><span>{text}</span></span></li>)}
+      </ol>
+      <div class="cols">
+        {values.map(([name, text]) => <div><h3>{name}</h3><p>{text}</p></div>)}
+      </div>
+    </Section>
+
+    <Section id="hosts" label="git shortlog -s" title="Your hosts">
+      <div class="hosts">{hosts.map((host) => <Host host={host} />)}</div>
+    </Section>
+
+    <Section id="episodes" label="git log --graph --reverse" title="Coming up">
+      <ol class="log">
+        {episodes.map((e) => (
+          <li class={e.guest ? 'guest-ep' : 'host-ep'}>
+            <span class="g" aria-hidden="true">{e.guest && <b></b>}<i></i></span>
+            <div class="e">
+              <span class="when">{e.when} · EP {e.number}</span>
+              <h3>{e.title}</h3>
+              <p><span class="tag">{e.guest ? 'With a guest.' : 'Hosts only.'}</span> {e.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </Section>
+
+    <Section id="listen" label="git remote -v" title="Where to listen">
+      <p class="muted">Feeds go live with Episode 0 in December.</p>
+      <div class="listen">
+        <span>Spotify <small>soon</small></span>
+        <span>Apple Podcasts <small>soon</small></span>
+        <span>YouTube <small>soon</small></span>
+      </div>
+    </Section>
+
+    <Section id="contact" label="git config user.email" title="Know a maintainer we should talk to?">
+      <p class="muted">Tell us who keeps your favourite project running, or what you would ask them. Feedback on episodes goes to the same address.</p>
+      <CopyEmail address="hello@friendswithcommits.dev" />
+    </Section>
+  </main>
+
+  <Footer />
+</BaseLayout>

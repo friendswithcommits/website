@@ -1,0 +1,16 @@
+---
+import { Image } from 'astro:assets';
+import type { Host } from '../data/hosts';
+const { host } = Astro.props as { host: Host };
+const c = host.lane === 'main' ? 'var(--main)' : 'var(--host)';
+---
+<div class="host" style={`--c: ${c}`}>
+  <span class="lane"><span class="avatar"><Image src={host.photo} alt={host.name} width={176} height={176} /></span></span>
+  <div>
+    <h3>{host.name}</h3>
+    <p class="role">{host.role}</p>
+    <ul>
+      {host.points.map((p) => <li>{p.text}{p.link && <a href={p.link.href}>{p.link.label}</a>}</li>)}
+    </ul>
+  </div>
+</div>

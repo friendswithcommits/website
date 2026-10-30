@@ -1,0 +1,20 @@
+---
+interface Props { address: string; }
+const { address } = Astro.props;
+---
+<div class="mail">
+  <a id="mail-address" href={`mailto:${address}`}>{address}</a>
+  <button id="mail-copy" type="button">Copy</button>
+</div>
+<script>
+  const btn = document.getElementById('mail-copy');
+  const addr = document.getElementById('mail-address');
+  btn?.addEventListener('click', async () => {
+    const done = (msg: string) => { btn.textContent = msg; setTimeout(() => (btn.textContent = 'Copy'), 1600); };
+    try { await navigator.clipboard.writeText(addr!.textContent!.trim()); done('Copied'); }
+    catch {
+      const r = document.createRange(); r.selectNodeContents(addr!);
+      const s = getSelection()!; s.removeAllRanges(); s.addRange(r); done('Selected');
+    }
+  });
+</script>

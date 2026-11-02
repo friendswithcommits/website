@@ -10,7 +10,7 @@ const {
   description = 'A podcast about the people who keep open source running, now that agents can write the code.',
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL('/website-header-1920x480.png', Astro.site);
+const ogImage = new URL('/og-1200x630.png', Astro.site);
 const ogDescription = 'The people who keep open source running. A podcast about the people behind the repos, now that agents can write the code.';
 ---
 <!doctype html>
@@ -29,7 +29,11 @@ const ogDescription = 'The people who keep open source running. A podcast about 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Friends with Commits: The people who keep open source running." />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
   </head>
   <body>
     <slot />

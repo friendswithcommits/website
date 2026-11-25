@@ -158,3 +158,8 @@ footer .wrap p a { text-decoration-color: var(--main); }
   border: 1px solid var(--hair); font-weight: 500; font-size: var(--step--1); text-decoration: none; }
 .player .download:hover { border-color: var(--main); }
 .player .download small { color: var(--muted); }
+
+.transcript { margin-top: 18px; max-width: 70ch; }
+.transcript summary { cursor: pointer; font-weight: 500; }
+.transcript summary:focus-visible { outline: 3px solid var(--host); outline-offset: 3px; }
+.transcript p { color: var(--muted); margin: 14px 0 0; }

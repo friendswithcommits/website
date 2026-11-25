@@ -23,5 +23,12 @@ const sizeMb = exists ? (statSync(path).size / 1e6).toFixed(1) : '';
       </audio>
       <a class="download" href={trailer.file} download>Download MP3 <small>{sizeMb} MB</small></a>
     </figure>
+    {trailer.transcript?.length > 0 && (
+      <details class="transcript">
+        <summary>Read the transcript</summary>
+        {trailer.transcript.map((p) => <p>{p}</p>)}
+        <p class="muted"><small>Automatically transcribed and lightly corrected.</small></p>
+      </details>
+    )}
   </Section>
 )}

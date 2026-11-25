@@ -1,0 +1,27 @@
+---
+// Trailer: native audio player (keyboard and screen reader accessible) plus a download link.
+// Rendered only when the MP3 exists in public/, see src/data/trailer.ts.
+import { existsSync, statSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import Section from './Section.astro';
+import { trailer } from '../data/trailer';
+
+const path = fileURLToPath(new URL(`../../public${trailer.file}`, import.meta.url));
+const exists = existsSync(path);
+const sizeMb = exists ? (statSync(path).size / 1e6).toFixed(1) : '';
+---
+{exists && (
+  <Section id="trailer" label="git tag -a trailer" title="Listen to the trailer">
+    <p class="lead">{trailer.text}</p>
+    <figure class="player">
+      <figcaption>
+        <b>{trailer.title}</b>
+        <span>{[trailer.duration, new Date(trailer.published).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })].filter(Boolean).join(' · ')}</span>
+      </figcaption>
+      <audio controls preload="metadata" src={trailer.file}>
+        <a href={trailer.file}>Download the trailer (MP3)</a>
+      </audio>
+      <a class="download" href={trailer.file} download>Download MP3 <small>{sizeMb} MB</small></a>
+    </figure>
+  </Section>
+)}

@@ -5,6 +5,7 @@ import Section from '../components/Section.astro';
 import Host from '../components/Host.astro';
 import Footer from '../components/Footer.astro';
 import CopyEmail from '../components/CopyEmail.astro';
+import Trailer from '../components/Trailer.astro';
 import { hosts } from '../data/hosts';
 import { links } from '../data/links';
 
@@ -25,6 +26,8 @@ const values = [
   </header>
 
   <main>
+    <Trailer />
+
     <Section id="about" label="git show HEAD" title="A podcast about the people behind the repos.">
       <p class="lead">Open source runs on people, and those people are living through the biggest change to their work since the move to Git. Pull requests get cheap, reviews become the bottleneck, and agents read and write code in projects that are 20 years old.</p>
       <p class="muted">Nobody knows yet what that does to maintainers, sponsoring and communities. We ask the people who are finding out. Hosted by a maintainer and a developer who uses what he builds.</p>

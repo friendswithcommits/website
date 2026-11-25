@@ -146,3 +146,15 @@ footer p b { color: var(--fg); }
 .legal-h1 { margin: 24px 0 0; font-weight: 800; font-size: var(--step-2); line-height: 1.15; }
 .legal .label a { text-decoration: none; }
 footer .wrap p a { text-decoration-color: var(--main); }
+
+/* Trailer: flat panel, main-line accent on the left like a commit lane. */
+.player { margin: 0; display: grid; gap: 14px; padding: 20px; border: 1px solid var(--hair); border-left: 6px solid var(--main); }
+.player figcaption { display: grid; gap: 2px; }
+.player figcaption b { font-weight: 800; }
+.player figcaption span { color: var(--muted); font-size: var(--step--1); font-variant-numeric: tabular-nums; }
+.player audio { width: 100%; accent-color: var(--main); color-scheme: dark; }
+.player audio:focus-visible { outline: 3px solid var(--host); outline-offset: 3px; }
+.player .download { justify-self: start; display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px;
+  border: 1px solid var(--hair); font-weight: 500; font-size: var(--step--1); text-decoration: none; }
+.player .download:hover { border-color: var(--main); }
+.player .download small { color: var(--muted); }
